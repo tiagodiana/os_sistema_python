@@ -1,5 +1,6 @@
-# /bin/bash
+#!/usr/bin/env bash
 
-venv/bin/python Main.py
+
+venv/bin/python Inicio.py
 
 

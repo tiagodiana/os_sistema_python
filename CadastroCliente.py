@@ -4,15 +4,15 @@ from Cliente import Cliente
 from tkinter import messagebox
 
 
+
 class CadastroCliente():
-    message = messagebox
 
     def __init__(self):
 
         font = ('arial', 14, 'bold')
         estados = ['SP', 'AM']
-        self.form = Tk()
-        self.form.geometry('800x550+300+80')
+        self.form = Toplevel()
+        self.form.geometry('800x550+300+100')
         self.form.title('Cadastro de Cliente')
         self.form.resizable(0,0)
         self.form['bg'] = 'dodgerblue'
@@ -97,7 +97,8 @@ class CadastroCliente():
         #
         #BOTÃO SALVAR
         #
-        self.btnsalvar = Button(self.form, text='Salvar', font=font, width=15, bg='#39804E', fg='#fff', activebackground='#94FFB4', command=self.btnSalvar)
+        self.btnsalvar = Button(self.form, text='Salvar', font=font, width=15, bg='#39804E', fg='#fff',
+                                activebackground='#94FFB4', command=self.btnSalvar)
         self.btnsalvar.place(x=290, y=450)
 
 
@@ -109,7 +110,7 @@ class CadastroCliente():
         cpf = self.txtcpf.get()
         tel = self.txttelefone.get()
         cel = self.txtcelular.get()
-        rua = self.txtrua.get() + '-' + self.txtnum.get()
+        rua = self.txtrua.get()+ '-' + self.txtnum.get()
         bairro = self.txtbairro.get()
         cidade = self.txtcidade.get()
         estado = self.cmbestado.get()
@@ -128,6 +129,7 @@ class CadastroCliente():
             except:
                 messagebox.showinfo('ERRO', 'Erro no banco de dados')
 
+
 if __name__ == '__main__':
-    main = CadastroCliente()
-    main.form.mainloop()
+    cadatrocliente = CadastroCliente()
+    cadatrocliente.form.mainloop()
